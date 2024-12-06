@@ -1,9 +1,16 @@
 const express = require('express');
+const cors = require('cors'); // Importa el paquete CORS
 const app = express();
 const port = process.env.PORT || 3000; // Valor predeterminado para el puerto
 
 // Middleware para permitir el envío de datos en formato JSON
 app.use(express.json());
+
+// Habilitar CORS para todas las solicitudes
+app.use(cors());
+
+// Si solo quieres permitir un origen específico (por ejemplo, tu frontend Flutter):
+// app.use(cors({ origin: 'http://localhost:59396' })); // Reemplaza esta URL por la URL de tu frontend
 
 // Base de datos simulada (con los datos proporcionados)
 let teachers = [
